@@ -1,31 +1,67 @@
-# Logo Detection using YOLOv2
+# 🧠 Logo Detection with YOLOv2
 
-![alt text](https://cdn-images-1.medium.com/max/1100/1*uLoIU1s-lcvfOMBgRFZ1eg.png "YOLOv2 detection the logo of Google")
+This project implements a logo detection system using the YOLOv2 (You Only Look Once) object detection algorithm.
 
+---
 
+## 📁 Project Structure
 
-This repository provides the [code](https://github.com/akarshzingade/Logo-Detection-YOLOv2/blob/master/convert_annotations_for_yolov2.py) that converts FlickrLogo-47 Dataset annotations to the format required by YOLOv2. It also has the YOLOv2 [configuration file](https://github.com/akarshzingade/Logo-Detection-YOLOv2/blob/master/yolov2_logo_detection.cfg) used for the Logo Detection. You can read about how YOLOv2 works and how it was used to detect logos in FlickrLogo-47 Dataset in [this](https://medium.com/@akarshzingade/logo-detection-using-yolov2-8cda5a68740e) blog.  
-
-The best weights for logo detection using YOLOv2 can be found [here](https://drive.google.com/open?id=1_Wg2hOKRiqWK6rpbCI6XbNLOC5YT1zyS)
-
-# Instructions to use convert_annotations_for_yolov2.py
-
-convert_annotations_for_yolov2.py takes in 4 arguments:
-1) Path to the train/test folder containing the images and annotations of FlickrLogo-47 Dataset.
-2) Path to the destination folder where the images and the converted annotations are to be stored. 
-3) Path to store the train.txt/test.txt file and obj.names file. 
-4) Name of the text file to store the paths to the images for train/test.
-
-The 3rd argument is for a textfile that points to the train/test images for YOLOv2. 
-
-## How to pass the arguments?
-
-```python
-python convert_annotations_for_yolov2.py --input_folder train --output_folder train_yolo --obj_names_path . --text_filename train
+```
+├── 1.mp4                              # Sample input video 1
+├── 2.mp4                              # Sample input video 2
+├── obj.names                          # Class names for detection
+├── README.md                          # Project documentation
+├── yolo_logo.py                       # Python script for detection
+├── YOLOv2_logo_detection_10000th_iteration.weights (ignored) # Trained weights (not uploaded)
+├── yolov2_logo_detection.cfg         # YOLOv2 configuration file
 ```
 
-This will take './train' as the input folder (this should point to the train folder in FlickrLogo-47 dataset), './train_yolo' as the output folder where all the images and the converted annotations will be stored, '.' as the path to store train.txt and obj.names, and 'train' as the filename to store the image path for all train/test images. 
+> 🔥 Note: The `.weights` file is **not included** in this repository due to GitHub's 100MB file size limit.
 
-Make sure "className2ClassID.txt" file is in the same path as obj_names_path. 
+---
 
-Run convert_annotations_for_yolov2.py for both the train and test directory of FlickrLogo-47 dataset.
+## 🚀 How to Use
+
+1. **Install dependencies** (Python 3.x required):
+
+```
+pip install opencv-python numpy
+```
+
+2. **Run the detection script**:
+
+```
+python yolo_logo.py
+```
+
+3. **Output**: The script processes `1.mp4` and `2.mp4`, detects logos, and displays results with bounding boxes.
+
+---
+
+## 🧠 Files Explained
+
+- `yolo_logo.py`: Main script that loads the model and runs detection.
+- `yolov2_logo_detection.cfg`: YOLOv2 config file tuned for logo detection.
+- `obj.names`: List of logo classes to detect.
+- `*.mp4`: Sample input videos for testing the model.
+
+---
+
+## 📦 Model Weights
+
+To run detection, download the weights file and place it in the project folder:
+
+**Filename**: `YOLOv2_logo_detection_10000th_iteration.weights`  
+> 🚫 Not included in this repo.
+> Google Drive link - https://drive.google.com/drive/folders/1tLf6zU5AESHgcX8kKWVTGqf3E4IEhMvW?usp=drive_link
+---
+
+## 📸 Demo
+
+Coming soon — demo images or GIF of detection in action!
+
+---
+
+## 📝 License
+
+This project is for educational/research purposes. Please check individual file licenses if reusing.
